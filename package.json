@@ -1,0 +1,17 @@
+{
+    "name": "shivdnslookupchallenge",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "mongoose": "^6.8.4"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    },
+    "type": "module"
+}

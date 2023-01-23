@@ -1,0 +1,21 @@
+GET http://localhost:3000/api/dns?domain=geeksforgeeks.org
+
+### should return ip address
+GET http://localhost:3000/api/dns?domain=google.com
+
+### SHould accept
+POST http://localhost:3000/api/dns HTTP/1.1
+content-type: application/json
+
+
+{
+    "domainName": "google.com",
+    "ipAddress": "216.58.221.49"
+}
+
+### Should send invalid request
+POST http://localhost:3000/api/dns
+
+{
+    "domain": "geeksforgeeks.org"
+}
