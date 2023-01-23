@@ -30,8 +30,11 @@ app.get("/api/dns", async (req, res) => {
     // const ipInformation = await lookup(domainName, { all: true });
     const ipInformation = await dnsDB.get(domainName);
     const fromDB = ipInformation ? true : false;
+
+    // if not found in database, lookup the ip address using dns.lookup
     ipInformation ??= await lookup(domainName);
 
+    // the object is in 2 different formats, so we handle both cases
     const ipAddress = ipInformation?.ipAddresses ?? ipInformation?.address;
     res.json({ ipAddr: ipAddress });
 
