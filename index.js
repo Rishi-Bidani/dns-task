@@ -3,6 +3,7 @@ import express from "express";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+// dns lookup
 import { lookup } from "dns/promises";
 
 
@@ -12,6 +13,7 @@ import mongoose from "mongoose";
 await mongoose.connect(mongoURI);
 mongoose.set("strictQuery", false);
 
+// Database handler -> add querying code to this class instead of accessing directly
 import dnsDB from "./dnsschema.js"
 
 
@@ -57,7 +59,6 @@ app.post("/api/dns", (req, res) => {
     }
 
 })
-
 
 const PORT = process.env.PORT || 3000;
 http.listen(PORT, () => {

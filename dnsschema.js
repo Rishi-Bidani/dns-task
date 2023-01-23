@@ -8,6 +8,7 @@ const dnsSchema = mongoose.Schema({
 const DNS = mongoose.model("DNSEntry", dnsSchema);
 
 export default class DNSDB {
+    // insert or update (if exists) the ipAddresses for the domain name
     static async insert(domainName, ipAddresses) {
         console.log("DB insert::: ", domainName, ipAddresses)
         // check if domain exists
@@ -22,6 +23,7 @@ export default class DNSDB {
         }
     }
 
+    // get the ipAddresses for the domain name
     static async get(domainName) {
         // get the ipAdresses for the provided domain name
         const dns = await DNS.findOne({ domainName }, { ipAddresses: 1, _id: 0 })
