@@ -1,5 +1,10 @@
 import mongoose from "mongoose";
 
+/**
+ * Future work:
+ * 1. Convert the ipAddresses to an array of ipAddresses
+ */
+
 const dnsSchema = mongoose.Schema({
     domainName: String,
     ipAddresses: String,

@@ -28,11 +28,11 @@ app.get("/api/dns", async (req, res) => {
     // get domain name from query string
     const domainName = req.query.domain;
     // const ipInformation = await lookup(domainName, { all: true });
-    let ipInformation = await dnsDB.get(domainName);
-    let fromDB = ipInformation ? true : false;
+    const ipInformation = await dnsDB.get(domainName);
+    const fromDB = ipInformation ? true : false;
     ipInformation ??= await lookup(domainName);
 
-    let ipAddress = ipInformation?.ipAddresses ?? ipInformation?.address;
+    const ipAddress = ipInformation?.ipAddresses ?? ipInformation?.address;
     res.json({ ipAddr: ipAddress });
 
     // Do work after sending response to avoid unecessary delay
